@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="pos_extfe_sale_order_form_view" model="ir.ui.view">
+        <field name="name">pos_extfe.sale.order.form.view</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='action_confirm']" position="before">
+                <button name="send_to_pos"
+                        string="Pasar a caja" type="object"
+                        attrs="{'invisible': [('state', 'not in', ['draft','sent'])]}"
+                        />
+            </xpath>
+            <xpath expr="//field[@name='partner_shipping_id']" position="after">
+                <field name="x_employee_id" attrs="{'required':True, 'readonly':[('state','!=','draft')] }" />
+            </xpath>
+            <xpath expr="//field[@name='payment_term_id']" position="after">
+                <field name="x_sent_to_pos" invisible="1" />
+                <field name="x_document_type" attrs="{'readonly':[('x_sent_to_pos','=',True)] }" />
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

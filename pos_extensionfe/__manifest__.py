@@ -1,0 +1,42 @@
+# -*- coding: utf-8 -*-
+
+{
+    "name" : "POS ExtensionFe",
+    "version" : "14.0.0.1",
+    'category': 'Point of Sale',    
+    'summary': 'Agrega varias mejoras a POS para ferreterias con varios puntos de ventas y una o varias cajas',
+    "description": """
+    """,
+    "author": "PROINTEC",
+    'website': "http://www.prointeccr.com",
+    'license': 'LGPL-3',
+    'depends': ['web', 'base', 'hr', 'point_of_sale', 'sale', 'mail' ],
+    "data": [
+        'views/assets.xml', 
+        'views/web_assets.xml',
+        'wizards/pos_set_express.xml',
+        'wizards/pos_config_cashier.xml',
+        'wizards/pos_payment_wizard.xml',
+        'views/pos_payment_method.xml',
+        'views/employee_views.xml',
+        'views/pos_config_views.xml',
+        'views/pos_orders_views.xml',
+        'views/sale_order_views.xml',
+        'views/pos_session_views.xml',
+        'report/pos_session_report.xml',
+        'report/pos_set_express_report.xml',
+        'report/pos_order_ticket_report.xml',
+        'data/mail_fae_pos_order_template.xml',
+        'security/ir.model.access.csv',
+        'security/pos_groups_rules.xml',
+        'views/menu_views.xml',
+        'cron_task/cron_fae_pos.xml',
+    ],
+    'qweb': [
+        'static/src/xml/pos_draft_orders.xml',
+        'static/src/xml/pos_disable_option.xml',
+    ],
+    "application": False,
+    "installable": True,
+    "auto_install": False,
+}

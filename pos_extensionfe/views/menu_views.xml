@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <menuitem id="xposfe_menu_cajero" name="Cajeros" parent="point_of_sale.menu_point_config_product" sequence="2"
+                action="action_xpos_employee_action" groups="pos_extensionfe.group_manager" />
+    </data>
+</odoo>
