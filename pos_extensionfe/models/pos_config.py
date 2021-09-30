@@ -34,7 +34,7 @@ class POSConfigInherit(models.Model):
 
     @api.onchange('x_terminal')
     def _onchange_xpos_config(self):
-        if not (1 <= self.x_terminal <= 99999):
+        if self.x_terminal != None and not (1 <= self.x_terminal <= 99999):
             raise ValidationError('El número de terminal debe estar entre 1 y 99999')
 
     # override este metodo para que muestre la session de cualquier usuario (sesiones de venta)
