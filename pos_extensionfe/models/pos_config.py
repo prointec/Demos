@@ -32,7 +32,7 @@ class POSConfigInherit(models.Model):
                                 help='Cantidad de impresiones del ticket')
 
 
-    @api.onchange('x_terminal'):
+    @api.onchange('x_terminal')
     def _onchange_xpos_config(self):
         if self.name and not (1 <= self.x_terminal <= 99999):
             raise ValidationError('El número de terminal debe estar entre 1 y 99999')
