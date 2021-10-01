@@ -532,7 +532,7 @@ class PosOrderInherit(models.Model):
         if self.x_move_type == 'invoice':
             # son invoice
             doc_type_ref = None if not self.x_invoice_reference_id else self.x_invoice_reference_id.x_document_type
-            if not self.x_document_type and (not doc_type_ref or doc_type_ref != 'NC'):
+            if self.company_id.x_fae_mode != 'N' and not self.x_document_type and (not doc_type_ref or doc_type_ref != 'NC'):
                 raise ValidationError('Debe indicar el tipo de documento electrónico a Generar')
         if self.x_move_type in ('invoice','refund') and self.x_document_type:
             if self.partner_id:
